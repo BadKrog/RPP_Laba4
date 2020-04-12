@@ -16,6 +16,10 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 
     private static int day;
 
+    static {
+        day = -1;
+    }
+
     public static void info(int days){
         day = days;
     }
@@ -26,13 +30,10 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int i=0; i<N; i++) {
 
-            Log.d("MyTag", "I in start update");
-
             int appWidgetId = appWidgetIds[i];
 
             // Create an Intent to launch ExampleActivity
             Intent intent = new Intent(context, MainActivity.class);
-
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
             // Get the layout for the App Widget and attach an on-click listener
@@ -40,11 +41,6 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.example_appwidget);
             views.setOnClickPendingIntent(R.id.text_widget, pendingIntent);
             views.setTextViewText(R.id.text_widget, ""+day);
-
-            /*View view = new View(context);
-            TextView textDay = (TextView) view.findViewById(R.id.text_widget);
-            textDay.setText(""+days);*/
-            Log.d("MyTag", "Дней осталось:"+day);
 
 
             // Tell the AppWidgetManager to perform an update on the current app widget
@@ -55,5 +51,11 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         update(context, appWidgetManager, appWidgetIds);
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+        Log.d("MyTag", "Ну здесь то работает");
     }
 }
