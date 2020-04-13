@@ -30,6 +30,14 @@ MainActivity. Этот класс реализует обычное активи
 
 Скриншоты программы:
 
-![Первое активити]()
-![Первое активити]()
-![Первое активити]()
+Активити
+
+![Первое активити](https://github.com/BadKrog/RPP_Laba4/blob/master/ImageForGit/Screenshot_2020-04-14-01-26-54-203_com.example.rpp_laba4.jpg)
+
+Widget
+
+![Первое активити](https://github.com/BadKrog/RPP_Laba4/blob/master/ImageForGit/IMG_20200414_012747.jpg)
+
+Уведомление
+
+![Первое активити](https://github.com/BadKrog/RPP_Laba4/blob/master/ImageForGit/IMG_20200414_012805.jpg)
